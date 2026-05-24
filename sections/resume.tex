@@ -56,11 +56,15 @@
 \photo[circle,noedge,right]{./sections/profile}
 \name{Athanasios}{Karezos}
 \position{Backend Developer}
-\IfFileExists{./sections/secrets.tex}{%
-  \input{./sections/secrets.tex}%
-}{%
+\ifdefined\publicMode
   \input{./sections/secrets.example.tex}%
-}
+\else
+  \IfFileExists{./sections/secrets.tex}{%
+    \input{./sections/secrets.tex}%
+  }{%
+    \input{./sections/secrets.example.tex}%
+  }%
+\fi
 
 \mobile{(+30) 694 837 0217}
 \email{thankarezos@gmail.com}

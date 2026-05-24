@@ -28,6 +28,8 @@
 
 ## Compiled output (contains private info post-build) — share PDFs separately
 *.pdf
+## …but the public version (city-only) is meant to ship in the repo
+!sections/resume-public.pdf
 
 ### Private values (PII) ###
 sections/secrets.tex

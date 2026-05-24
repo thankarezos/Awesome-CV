@@ -1,0 +1,10 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Public-version wrapper: forces use of secrets.example.tex so the build
+% omits the full street address. Produces sections/resume-public.pdf,
+% suitable for committing to the public repo / README.
+%
+% For your normal local build (with full address from secrets.tex), use
+% sections/resume.tex instead.
+\def\publicMode{1}
+\input{resume.tex}
