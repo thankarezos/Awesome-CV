@@ -1,11 +1,11 @@
 .PHONY: examples
 
-CC = lualatex
-EXAMPLES_DIR = examples
-RESUME_DIR = examples/resume
-CV_DIR = examples/cv
+CC = xelatex
+EXAMPLES_DIR = sections
+RESUME_DIR = sections/resume
+CV_DIR = sections/cv
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
-CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
+CV_SRCS = $(shell find $(CV_DIR) -name '*.tex' 2>/dev/null)
 
 examples: $(foreach x, coverletter cv resume, $x.pdf)
 

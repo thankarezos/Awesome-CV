@@ -7,17 +7,37 @@
 *.fls
 *.out
 *.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.idx
+*.ilg
+*.ind
+*.synctex.gz
+*.synctex(busy)
+*.fdb_latexmk
+*.nav
+*.snm
+*.vrb
+*.xdv
 
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
 
+## Compiled output (contains private info post-build) — share PDFs separately
+*.pdf
+
+### Private values (PII) ###
+sections/secrets.tex
+
 ### Editor ###
 ## Vim & Emacs temp files:
 .*sw[op]
 *~
+.vscode/
 
 ### Mac OS X ###
 ## Mac OS X metadata files:
 *.DS_Store
-
