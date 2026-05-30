@@ -8,13 +8,13 @@
 #   sections/output/resume-public.pdf  — public build for the repo / README.
 #                                         Forces secrets.example.tex (city only)
 #                                         and drops the profile photo.
-#   sections/output/resume-no-photo.pdf — private (full address), no photo.
+#   sections/output/cv-athanasios-karezos.pdf — private (full address), no photo.
 #
 # Usage:
 #   ./build.sh           # build both local and public
 #   ./build.sh local     # only resume.pdf
 #   ./build.sh public    # only resume-public.pdf (+ README previews)
-#   ./build.sh nophoto   # private resume-no-photo.pdf
+#   ./build.sh cv        # private cv-athanasios-karezos.pdf (no photo)
 
 set -euo pipefail
 
@@ -46,17 +46,18 @@ build_public() {
   echo "    $OUT/resume-public-page-2.png"
 }
 
-build_nophoto() {
-  echo "==> Building private resume-no-photo.pdf"
-  build resume-no-photo
-  echo "    $OUT/resume-no-photo.pdf"
+build_cv() {
+  echo "==> Building private cv-athanasios-karezos.pdf (no photo)"
+  build cv
+  mv "$OUT/cv.pdf" "$OUT/cv-athanasios-karezos.pdf"
+  echo "    $OUT/cv-athanasios-karezos.pdf"
 }
 
 target="${1:-both}"
 case "$target" in
-  local)   build_local ;;
-  public)  build_public ;;
-  nophoto) build_nophoto ;;
-  both)    build_local; build_public ;;
-  *) echo "usage: $0 [local|public|nophoto|both]" >&2; exit 1 ;;
+  local)  build_local ;;
+  public) build_public ;;
+  cv)     build_cv ;;
+  both)   build_local; build_public ;;
+  *) echo "usage: $0 [local|public|cv|both]" >&2; exit 1 ;;
 esac
